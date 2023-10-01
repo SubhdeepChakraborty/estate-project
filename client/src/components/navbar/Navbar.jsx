@@ -84,8 +84,6 @@ const Navbar = () => {
       <Box
         height={"-moz-max-content"}
         color={"whiteAlpha.900"}
-        borderBottom={"1px"}
-        borderColor={"ActiveBorder"}
         background={"black"}
       >
         <Box
