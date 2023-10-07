@@ -6,12 +6,12 @@ const Companies = () => {
   return (
     <>
       <Box
-        p={"20"}
+        p={"10"}
         display={"flex"}
         alignContent={"center"}
         justifyContent={"center"}
       >
-        <Box w={"900px"}>
+        <Box w={"100vw"}>
           <Flex
             direction={"column"}
             alignItems={"center"}
