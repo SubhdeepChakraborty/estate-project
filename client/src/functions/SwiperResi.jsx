@@ -23,7 +23,6 @@ import {
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import { sliderSettings } from "../utils/Common";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 const SwiperResi = ({ Name }) => {
