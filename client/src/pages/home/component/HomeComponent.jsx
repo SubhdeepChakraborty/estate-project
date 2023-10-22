@@ -51,7 +51,16 @@ const HomeComponent = () => {
               }}
             >
               <VStack>
-                <Heading as={"h1"} fontWeight={"hairline"}>
+                <Heading
+                  as={"h1"}
+                  fontSize={{
+                    base: "2xl",
+                    md: "4xl",
+                    // lg: "5xl",
+                    // xl: "x-large",
+                  }}
+                  fontWeight={"hairline"}
+                >
                   Discover Most Suitable Property
                 </Heading>
                 <Box w={"360px"}>
@@ -60,12 +69,18 @@ const HomeComponent = () => {
                     size={"xs"}
                     fontWeight={"hairline"}
                     w="-moz-fit-content"
+                    className="Home-image"
                   >
                     Find a variety of properties that suit you very easily
                     forget all difficulties in finding a residencies for you.
                   </Heading>
                 </Box>
-                <Box w={"400px"}>
+                <Box
+                  w={{
+                    base: "250px",
+                    md: "400px",
+                  }}
+                >
                   <InputGroup>
                     <InputLeftElement
                       pointerEvents="none"
@@ -149,18 +164,17 @@ const HomeComponent = () => {
                   opacity: 1,
                 }}
               >
-                <Box boxSize={"400px"}>
+                <Box boxSize={"400px"} className="Home-image">
+                  {/* <Box> */}
                   <LazyLoadImage
                     // boxSize="400px"
                     // objectFit="cover"
-                    style={{
-                      objectFit: "cover",
-                    }}
                     effect="blur"
                     src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="House Image"
                   />
                 </Box>
+                {/* </Box> */}
               </motion.div>
             </Box>
           </WrapItem>

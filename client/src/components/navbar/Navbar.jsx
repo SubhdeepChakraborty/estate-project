@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import CottageIcon from "@mui/icons-material/Cottage";
 import {
   Box,
   Button,
   Checkbox,
+  Flex,
   FormControl,
   FormLabel,
   Input,
@@ -22,10 +23,35 @@ import { motion } from "framer-motion";
 import { Field, Formik } from "formik";
 import emailjs from "@emailjs/browser";
 import { useGlobalAreaContext } from "../context/Context";
+import MainMenuItem from "./menu/MenuItem";
 
 const Navbar = () => {
   //email
-  const form = useRef();
+  const formRef = useRef();
+  const toast = useToast();
+  const { isOpen, onToggle } = useGlobalAreaContext();
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    // Update the window size whenever the window is resized
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Add the event listener when the component mounts
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -63,9 +89,6 @@ const Navbar = () => {
       );
   };
 
-  const formRef = useRef();
-  const toast = useToast();
-  const { isOpen, onToggle } = useGlobalAreaContext();
   const container = {
     hidden: { opacity: 1, y: -50 },
     visible: {
@@ -78,7 +101,7 @@ const Navbar = () => {
       },
     },
   };
-
+  console.log(window.innerWidth);
   return (
     <>
       <Box
@@ -91,54 +114,69 @@ const Navbar = () => {
           display={"flex"}
           alignItems={"center"}
           justifyContent={"space-between"}
+          flexDirection={{
+            base: "row-reverse",
+            md: "unset",
+          }}
         >
           <Box display={"flex"} alignItems={"center"}>
             <Text>
               <CottageIcon sx={{ fontSize: 40 }} />
             </Text>
-            <Text fontWeight={""} fontSize={"sm"}>
+            <Text fontWeight={""} fontSize={"sm"} className="Home-image">
               H-Estate
             </Text>
           </Box>
 
           <Box display={"flex"} alignItems={"center"}>
-            <Wrap spacing={"3.5"} mr={"3"}>
-              <WrapItem>
-                <Link href="/">
-                  <Text fontSize={""} fontWeight={""}>
-                    Home
-                  </Text>
-                </Link>
-              </WrapItem>
+            {windowSize.width <= 425 ? (
+              <div>
+                <MainMenuItem />
+              </div>
+            ) : (
+              <>
+                <div>
+                  <Flex alignContent={"center"} justifyContent={"center"}>
+                    <Wrap spacing={"3.5"} mr={"3"}>
+                      <WrapItem>
+                        <Link href="/">
+                          <Text fontSize={""} fontWeight={""}>
+                            Home
+                          </Text>
+                        </Link>
+                      </WrapItem>
 
-              <WrapItem>
-                <Link href="/residencies">
-                  <Text fontSize={""} fontWeight={""}>
-                    Residencies
-                  </Text>
-                </Link>
-              </WrapItem>
+                      <WrapItem>
+                        <Link href="/residencies">
+                          <Text fontSize={""} fontWeight={""}>
+                            Residencies
+                          </Text>
+                        </Link>
+                      </WrapItem>
 
-              <WrapItem>
-                <Link href="/started">
-                  <Text fontSize={""} fontWeight={""}>
-                    Get Started
-                  </Text>
-                </Link>
-              </WrapItem>
+                      <WrapItem>
+                        <Link href="/started">
+                          <Text fontSize={""} fontWeight={""}>
+                            Get Started
+                          </Text>
+                        </Link>
+                      </WrapItem>
 
-              <WrapItem>
-                <Link href="/value">
-                  <Text fontSize={""} fontWeight={""}>
-                    Prize
-                  </Text>
-                </Link>
-              </WrapItem>
-            </Wrap>
-
-            <Button onClick={onToggle} variant={"unstyled"}>
-              Contact
-            </Button>
+                      <WrapItem>
+                        <Link href="/value">
+                          <Text fontSize={""} fontWeight={""}>
+                            Prize
+                          </Text>
+                        </Link>
+                      </WrapItem>
+                    </Wrap>
+                  </Flex>
+                </div>
+                <Button onClick={onToggle} variant={"unstyled"}>
+                  Contact
+                </Button>
+              </>
+            )}
           </Box>
         </Box>
       </Box>

@@ -22,17 +22,62 @@ const Footer = () => {
         borderTopColor={"ActiveBorder"}
         color={"whiteAlpha.900"}
       >
-        <Box p={"10"}>
+        <Box
+          p={{
+            base: "2.5",
+            md: "10",
+          }}
+        >
           <VStack>
-            <Heading fontWeight={"hairline"}>Get started with H-Estate</Heading>
-            <Heading as="h3" size={"md"} fontWeight={"hairline"}>
+            <Heading
+              fontWeight={"hairline"}
+              fontSize={{
+                base: "inherit",
+                md: "4xl",
+                // lg: "5xl",
+                // xl: "x-large",
+              }}
+            >
+              Get started with H-Estate
+            </Heading>
+            <Heading
+              as="h3"
+              size={"md"}
+              fontWeight={"hairline"}
+              fontSize={{
+                base: "small",
+                md: "4xl",
+                // lg: "5xl",
+                // xl: "x-large",
+              }}
+            >
               Subscribe and find your residencies
             </Heading>
-            <Button>Subscribe</Button>
+            <Button
+              size={{
+                base: "sm",
+                md: "md",
+              }}
+            >
+              Subscribe
+            </Button>
           </VStack>
         </Box>
-        <Flex alignContent={"center"} justifyContent={"space-between"}>
-          <Box w={"400px"} p={"2.5"}>
+        <Flex
+          alignContent={"center"}
+          justifyContent={"space-between"}
+          flexDirection={{
+            base: "column",
+            md: "row",
+          }}
+        >
+          <Box
+            w={{
+              sm: "100vw",
+              md: "400px",
+            }}
+            p={"2.5"}
+          >
             <VStack>
               <Heading as="h2" fontWeight={"hairline"}>
                 {" "}
@@ -43,33 +88,39 @@ const Footer = () => {
               </Heading>
             </VStack>
           </Box>
-          <Box w={"400px"} p={"2.5"}>
+          <Box
+            w={{
+              sm: "100vw",
+              md: "400px",
+            }}
+            p={"2.5"}
+          >
             <VStack>
               <Heading as="h2" fontWeight={"hairline"}>
                 {" "}
                 Information
               </Heading>
               <Heading as="h6" size={"xs"} fontWeight={"hairline"}>
-                Kolkata | India West Bengal
+                India | West Bengal
               </Heading>
-              <Box>
-                <Flex>
-                  <Wrap spacing={"2.5"}>
-                    <WrapItem>
-                      <Link>Property</Link>
-                    </WrapItem>
-                    <WrapItem>
-                      <Link>Services</Link>
-                    </WrapItem>
-                    <WrapItem>
-                      <Link>Product</Link>
-                    </WrapItem>
-                    <WrapItem>
-                      <Link>About us</Link>
-                    </WrapItem>
-                  </Wrap>
-                </Flex>
-              </Box>
+              {/* <Box> */}
+              <Flex>
+                <Wrap spacing={"2.5"}>
+                  <WrapItem>
+                    <Link>Property</Link>
+                  </WrapItem>
+                  <WrapItem>
+                    <Link>Services</Link>
+                  </WrapItem>
+                  <WrapItem>
+                    <Link>Product</Link>
+                  </WrapItem>
+                  <WrapItem>
+                    <Link>About us</Link>
+                  </WrapItem>
+                </Wrap>
+              </Flex>
+              {/* </Box> */}
             </VStack>
           </Box>
         </Flex>

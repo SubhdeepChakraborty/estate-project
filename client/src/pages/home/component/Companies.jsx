@@ -6,7 +6,7 @@ const Companies = () => {
   return (
     <>
       <Box
-        p={"10"}
+        p={"2"}
         display={"flex"}
         alignContent={"center"}
         justifyContent={"center"}

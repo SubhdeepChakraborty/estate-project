@@ -1,3 +1,10 @@
 body {
   user-select: none;
 }
+
+/* /BreaKpoints */
+@media screen and (max-width: 481px) {
+  .Home-image {
+    display: none;
+  }
+}
