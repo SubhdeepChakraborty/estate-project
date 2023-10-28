@@ -54,6 +54,8 @@ const Footer = () => {
               Subscribe and find your residencies
             </Heading>
             <Button
+              w={"auto"}
+              zIndex={"0"}
               size={{
                 base: "sm",
                 md: "md",

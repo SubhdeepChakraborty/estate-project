@@ -24,8 +24,16 @@ const MenuItem = () => {
   };
   return (
     <motion.div className="sidebar" animate={open ? "open" : "closed"}>
-      <motion.div className="bg" variants={variants}>
-        <Links />
+      <motion.div
+        className="bg"
+        variants={variants}
+        style={{
+          position: open ? "fixed" : "",
+        }}
+      >
+        <div>
+          <Links />
+        </div>
       </motion.div>
       <Toggle setOpen={setOpen} />
     </motion.div>

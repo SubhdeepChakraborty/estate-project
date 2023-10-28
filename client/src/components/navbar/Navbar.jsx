@@ -140,39 +140,43 @@ const Navbar = () => {
                     <Wrap spacing={"3.5"} mr={"3"}>
                       <WrapItem>
                         <Link href="/">
-                          <Text fontSize={""} fontWeight={""}>
-                            Home
-                          </Text>
-                        </Link>
-                      </WrapItem>
-
-                      <WrapItem>
-                        <Link href="/residencies">
-                          <Text fontSize={""} fontWeight={""}>
-                            Residencies
+                          <Text fontSize={""} fontWeight={""} className="text">
+                            home
                           </Text>
                         </Link>
                       </WrapItem>
 
                       <WrapItem>
                         <Link href="/started">
-                          <Text fontSize={""} fontWeight={""}>
-                            Get Started
+                          <Text fontSize={""} fontWeight={""} className="text">
+                            start
                           </Text>
                         </Link>
                       </WrapItem>
 
                       <WrapItem>
-                        <Link href="/value">
-                          <Text fontSize={""} fontWeight={""}>
-                            Prize
+                        <Link href="/prize">
+                          <Text fontSize={""} fontWeight={""} className="text">
+                            prize
+                          </Text>
+                        </Link>
+                      </WrapItem>
+
+                      <WrapItem>
+                        <Link href="/residencies">
+                          <Text fontSize={""} fontWeight={""} className="text">
+                            residencies
                           </Text>
                         </Link>
                       </WrapItem>
                     </Wrap>
                   </Flex>
                 </div>
-                <Button onClick={onToggle} variant={"unstyled"}>
+                <Button
+                  onClick={onToggle}
+                  variant={"unstyled"}
+                  display={"contents"}
+                >
                   Contact
                 </Button>
               </>
@@ -186,7 +190,7 @@ const Navbar = () => {
           height={"-webkit-fit-content"}
           color="white"
           mt="4"
-          bg="#040D12"
+          bg="black"
           rounded="md"
           shadow="md"
         >

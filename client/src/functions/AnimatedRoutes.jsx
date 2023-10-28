@@ -11,8 +11,8 @@ const AnimatedRoutes = () => {
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Home />}>
           <Route index element={<HomeComponent />} />
-          <Route path="started" element={<Start />} />
-          <Route path="value" element={<Value />} />
+          <Route path="start" element={<Start />} />
+          <Route path="prize" element={<Value />} />
           <Route path="residencies" element={<Residency />} />
         </Route>
       </Routes>

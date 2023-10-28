@@ -1,12 +1,18 @@
 import React from "react";
-import { Link } from "@chakra-ui/react";
+import { Link, Text } from "@chakra-ui/react";
 
 const Links = () => {
-  const items = ["Home", "HOme", "HOme", "HOme"];
+  const items = ["", "prize", "start", "residencies"];
   return (
     <div className="links">
-      {items.map((ele) => {
-        return <Link>{ele}</Link>;
+      {items.map((ele, i) => {
+        return (
+          <Link href={`/${ele}`} key={i}>
+            <Text fontSize={""} fontWeight={""} className="text">
+              {ele === "" ? "home" : `${ele}`}
+            </Text>
+          </Link>
+        );
       })}
     </div>
   );

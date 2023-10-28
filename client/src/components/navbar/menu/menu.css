@@ -7,13 +7,14 @@
   color: black;
   .bg {
     background: white;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
+    z-index: 10;
     bottom: 0;
     width: 250px;
     .links {
-      position: absolute;
+      /* position: absolute; */
       width: 100%;
       height: 100%;
       display: flex;
@@ -21,7 +22,7 @@
       gap: 20px;
       align-items: center;
       justify-content: center;
-
+      margin-top: 138px;
       a {
         font-size: 40px;
       }

@@ -8,3 +8,7 @@ body {
     display: none;
   }
 }
+
+.text::first-letter {
+  text-transform: uppercase;
+}
