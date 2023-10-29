@@ -8,7 +8,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Link,
   Slide,
   TagLabel,
   Text,
@@ -24,6 +23,7 @@ import { Field, Formik } from "formik";
 import emailjs from "@emailjs/browser";
 import { useGlobalAreaContext } from "../context/Context";
 import MainMenuItem from "./menu/MenuItem";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   //email
@@ -139,7 +139,7 @@ const Navbar = () => {
                   <Flex alignContent={"center"} justifyContent={"center"}>
                     <Wrap spacing={"3.5"} mr={"3"}>
                       <WrapItem>
-                        <Link href="/">
+                        <Link to="/">
                           <Text fontSize={""} fontWeight={""} className="text">
                             home
                           </Text>
@@ -147,7 +147,7 @@ const Navbar = () => {
                       </WrapItem>
 
                       <WrapItem>
-                        <Link href="/started">
+                        <Link to="/start">
                           <Text fontSize={""} fontWeight={""} className="text">
                             start
                           </Text>
@@ -155,7 +155,7 @@ const Navbar = () => {
                       </WrapItem>
 
                       <WrapItem>
-                        <Link href="/prize">
+                        <Link to="/prize">
                           <Text fontSize={""} fontWeight={""} className="text">
                             prize
                           </Text>
@@ -163,7 +163,7 @@ const Navbar = () => {
                       </WrapItem>
 
                       <WrapItem>
-                        <Link href="/residencies">
+                        <Link to="/residencies">
                           <Text fontSize={""} fontWeight={""} className="text">
                             residencies
                           </Text>
