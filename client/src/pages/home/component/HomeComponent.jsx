@@ -23,6 +23,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import CountUp from "react-countup";
 import Companies from "./Companies";
 import { SwiperResi } from "../../../functions";
+import Value from "./Value";
 
 const HomeComponent = () => {
   return (
@@ -186,6 +187,9 @@ const HomeComponent = () => {
       </Box>
       <Box>
         <SwiperResi Name={"Residencies"} />
+      </Box>
+      <Box>
+        <Value />
       </Box>
       <Footer />
     </>
