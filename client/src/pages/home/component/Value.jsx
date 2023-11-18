@@ -29,15 +29,46 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Value = () => {
   return (
-    <Flex height={"600px"}>
+    <Flex
+      height={{
+        base: "1000px",
+        md: "850px",
+        lg: "650px",
+        xl: "650px",
+      }}
+      flexDirection={{
+        base: "column",
+        sm: "column",
+        md: "column",
+        lg: "row",
+        xl: "row",
+      }}
+    >
       <Box
-        w={"600px"}
+        w={{
+          base: "100%",
+          sm: "100%",
+          md: "100%",
+          lg: "600px",
+          xl: "600px",
+        }}
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
+        p={{
+          base: "5px",
+          md: "",
+          lg: "",
+        }}
+        mt={"16"}
       >
         <Box overflow={"hidden"} borderTopRadius={"full"}>
-          <Box boxSize={"300px"} className="Home-image">
+          <Box
+            boxSize={{
+              base: "300px",
+              md: "400px",
+            }}
+          >
             {/* <Box> */}
             <LazyLoadImage
               // boxSize="400px"
@@ -49,8 +80,16 @@ const Value = () => {
           </Box>
         </Box>
       </Box>
-      <Box flexGrow={"1"} mt={"16"}>
-        <Box>
+      <Box flexGrow={"1"} mt={"16"} p={"5px"}>
+        <Box
+          display={{
+            base: "none",
+            sm: "none",
+            md: "none",
+            lg: "block",
+            xl: "block",
+          }}
+        >
           <Heading
             mb={"3"}
             fontSize={"larger"}
@@ -67,7 +106,7 @@ const Value = () => {
             service,also believe a good place to live can make your life better
           </Text>
         </Box>
-        <Box w={"500px"}>
+        <Box>
           <Accordion
             className="accordin"
             allowMultipleExpanded={false}
@@ -92,7 +131,14 @@ const Value = () => {
                         }
                       </AccordionItemState>
                       <Box className="icon">{data?.icon}</Box>
-                      <Text fontSize={"2xl"}>{data?.heading}</Text>
+                      <Text
+                        fontSize={{
+                          base: "small",
+                          md: "larger",
+                        }}
+                      >
+                        {data?.heading}
+                      </Text>
                       <Box>
                         <MdOutlineArrowDropDown size={20} />
                       </Box>
