@@ -60,7 +60,7 @@ const Value = () => {
           md: "",
           lg: "",
         }}
-        mt={"16"}
+        // mt={"16"}
       >
         <Box overflow={"hidden"} borderTopRadius={"full"}>
           <Box
@@ -80,7 +80,7 @@ const Value = () => {
           </Box>
         </Box>
       </Box>
-      <Box flexGrow={"1"} mt={"16"} p={"5px"}>
+      <Box flexGrow={"1"} p={"5px"}>
         <Box
           display={{
             base: "none",
@@ -89,6 +89,7 @@ const Value = () => {
             lg: "block",
             xl: "block",
           }}
+          mt={"24"}
         >
           <Heading
             mb={"3"}
