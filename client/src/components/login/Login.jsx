@@ -88,7 +88,6 @@ const Login = () => {
                   loadingText="Submitting"
                   w={"full"}
                   colorScheme="green"
-                  paddingLeft={0}
                 >
                   Login
                 </Button>
