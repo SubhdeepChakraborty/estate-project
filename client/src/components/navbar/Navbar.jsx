@@ -123,7 +123,11 @@ const Navbar = () => {
             <Text>
               <CottageIcon sx={{ fontSize: 40 }} />
             </Text>
-            <Text fontWeight={""} fontSize={"sm"} className="Home-image">
+            <Text
+              fontWeight={"extrabold"}
+              fontSize={"sm"}
+              className="Home-image"
+            >
               H-Estate
             </Text>
           </Box>
