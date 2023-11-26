@@ -31,7 +31,7 @@ const Value = () => {
   return (
     <Flex
       height={{
-        base: "1000px",
+        base: "800px",
         md: "850px",
         lg: "650px",
         xl: "650px",
@@ -80,7 +80,14 @@ const Value = () => {
           </Box>
         </Box>
       </Box>
-      <Box flexGrow={"1"} p={"5px"}>
+      <Box
+        // flexGrow={"1"}
+        flexDirection={"column"}
+        p={"5px"}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+      >
         <Box
           display={{
             base: "none",
@@ -89,7 +96,7 @@ const Value = () => {
             lg: "block",
             xl: "block",
           }}
-          mt={"24"}
+          // mt={"24"}
         >
           <Heading
             mb={"3"}
@@ -107,7 +114,12 @@ const Value = () => {
             service,also believe a good place to live can make your life better
           </Text>
         </Box>
-        <Box>
+        <Box
+          w={{
+            base: "300px",
+            md: "400px",
+          }}
+        >
           <Accordion
             className="accordin"
             allowMultipleExpanded={false}
@@ -134,8 +146,8 @@ const Value = () => {
                       <Box className="icon">{data?.icon}</Box>
                       <Text
                         fontSize={{
-                          base: "small",
-                          md: "larger",
+                          base: "x-small",
+                          md: "medium",
                         }}
                       >
                         {data?.heading}
