@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import CottageIcon from "@mui/icons-material/Cottage";
 import {
   Box,
   Button,
