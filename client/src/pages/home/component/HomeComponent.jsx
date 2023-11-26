@@ -24,6 +24,7 @@ import CountUp from "react-countup";
 import Companies from "./Companies";
 import { SwiperResi } from "../../../functions";
 import Value from "./Value";
+import HomeFooter from "./HomeFooter";
 
 const HomeComponent = () => {
   return (
@@ -190,6 +191,9 @@ const HomeComponent = () => {
       </Box>
       <Box>
         <Value />
+      </Box>
+      <Box>
+        <HomeFooter />
       </Box>
       <Footer />
     </>

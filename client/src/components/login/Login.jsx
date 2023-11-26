@@ -15,7 +15,7 @@ import { Field, Formik } from "formik";
 const Login = () => {
   return (
     <Flex
-      bg={"gray.100"}
+      bg={"black"}
       height={"100vh"}
       width={"100vw"}
       position={"absolute"}

@@ -1,8 +1,6 @@
 import {
   Box,
-  Button,
   Flex,
-  HStack,
   Heading,
   Link,
   Text,
@@ -11,60 +9,17 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
+import { AtSignIcon } from "@chakra-ui/icons";
 
 const Footer = () => {
   return (
     <>
       <Box
         h={"-moz-max-content"}
-        background={"black"}
+        // background={"black"}
         borderTop={"1px"}
         borderTopColor={"ActiveBorder"}
-        color={"whiteAlpha.900"}
       >
-        <Box
-          p={{
-            base: "2.5",
-            md: "10",
-          }}
-        >
-          <VStack>
-            <Heading
-              fontWeight={"hairline"}
-              fontSize={{
-                base: "inherit",
-                md: "4xl",
-                // lg: "5xl",
-                // xl: "x-large",
-              }}
-            >
-              Get started with H-Estate
-            </Heading>
-            <Heading
-              as="h3"
-              size={"md"}
-              fontWeight={"hairline"}
-              fontSize={{
-                base: "small",
-                md: "4xl",
-                // lg: "5xl",
-                // xl: "x-large",
-              }}
-            >
-              Subscribe and find your residencies
-            </Heading>
-            <Button
-              w={"auto"}
-              zIndex={"0"}
-              size={{
-                base: "sm",
-                md: "md",
-              }}
-            >
-              Subscribe
-            </Button>
-          </VStack>
-        </Box>
         <Flex
           alignContent={"center"}
           justifyContent={"space-between"}
@@ -79,6 +34,12 @@ const Footer = () => {
               md: "400px",
             }}
             p={"2.5"}
+            display={{
+              base: "none",
+              md: "flex",
+            }}
+            alignItems={"center"}
+            justifyContent={"flex-end"}
           >
             <VStack>
               <Heading as="h2" fontWeight={"hairline"}>
@@ -88,6 +49,12 @@ const Footer = () => {
               <Heading as="h6" size={"xs"} fontWeight={"hairline"}>
                 To make people happy
               </Heading>
+              <Box>
+                <AtSignIcon />
+                <Text display={"inline-block"} fontWeight={"bold"}>
+                  Subhadeep Chakraborty
+                </Text>
+              </Box>
             </VStack>
           </Box>
           <Box
@@ -109,16 +76,24 @@ const Footer = () => {
               <Flex>
                 <Wrap spacing={"2.5"}>
                   <WrapItem>
-                    <Link>Property</Link>
+                    <Link>
+                      <Text fontWeight={"bold"}>Property</Text>
+                    </Link>
                   </WrapItem>
                   <WrapItem>
-                    <Link>Services</Link>
+                    <Link>
+                      <Text fontWeight={"bold"}>Services</Text>
+                    </Link>
                   </WrapItem>
                   <WrapItem>
-                    <Link>Product</Link>
+                    <Link>
+                      <Text fontWeight={"bold"}>Product</Text>
+                    </Link>
                   </WrapItem>
                   <WrapItem>
-                    <Link>About us</Link>
+                    <Link>
+                      <Text fontWeight={"bold"}>About us</Text>
+                    </Link>
                   </WrapItem>
                 </Wrap>
               </Flex>

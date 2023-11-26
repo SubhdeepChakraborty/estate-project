@@ -17,6 +17,7 @@ import {
   WrapItem,
   useDisclosure,
   useToast,
+  Avatar,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Field, Formik } from "formik";
@@ -120,16 +121,9 @@ const Navbar = () => {
           }}
         >
           <Box display={"flex"} alignItems={"center"}>
-            <Text>
-              <CottageIcon sx={{ fontSize: 40 }} />
-            </Text>
-            <Text
-              fontWeight={"extrabold"}
-              fontSize={"sm"}
-              className="Home-image"
-            >
-              H-Estate
-            </Text>
+            <Box cursor={"pointer"}>
+              <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+            </Box>
           </Box>
 
           <Box display={"flex"} alignItems={"center"}>
@@ -157,15 +151,6 @@ const Navbar = () => {
                           </Text>
                         </Link>
                       </WrapItem>
-
-                      <WrapItem>
-                        <Link to="/prize">
-                          <Text fontSize={""} fontWeight={""} className="text">
-                            prize
-                          </Text>
-                        </Link>
-                      </WrapItem>
-
                       <WrapItem>
                         <Link to="/residencies">
                           <Text fontSize={""} fontWeight={""} className="text">
@@ -190,6 +175,7 @@ const Navbar = () => {
       </Box>
       <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
         <Box
+          w={"400px"}
           p="40px"
           height={"-webkit-fit-content"}
           color="white"
@@ -199,7 +185,7 @@ const Navbar = () => {
           shadow="md"
         >
           <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
-            <Box width={"700px"}>
+            <Box width={"300px"}>
               <Formik
                 initialValues={{
                   name: "",

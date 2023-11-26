@@ -96,7 +96,6 @@ const Value = () => {
             lg: "block",
             xl: "block",
           }}
-          // mt={"24"}
         >
           <Heading
             mb={"3"}
