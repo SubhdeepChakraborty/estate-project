@@ -43,6 +43,8 @@ const Value = () => {
         lg: "row",
         xl: "row",
       }}
+      alignItems={"center"}
+      justifyContent={"center"}
     >
       <Box
         w={{
