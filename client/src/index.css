@@ -12,3 +12,7 @@ body {
 .text::first-letter {
   text-transform: uppercase;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

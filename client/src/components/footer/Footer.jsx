@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { AtSignIcon } from "@chakra-ui/icons";
+import { FaRegCopyright } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -49,9 +50,13 @@ const Footer = () => {
               <Heading as="h6" size={"xs"} fontWeight={"hairline"}>
                 To make people happy
               </Heading>
-              <Box>
-                <AtSignIcon />
-                <Text display={"inline-block"} fontWeight={"bold"}>
+              <Box display={"flex"} alignItems={"center"} gap={"2px"}>
+                <FaRegCopyright />
+                <Text
+                  display={"inline-block"}
+                  fontSize={"medium"}
+                  fontWeight={"bold"}
+                >
                   Subhadeep Chakraborty
                 </Text>
               </Box>
