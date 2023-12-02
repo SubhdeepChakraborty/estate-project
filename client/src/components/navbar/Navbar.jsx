@@ -202,7 +202,7 @@ const Navbar = () => {
                           name="name"
                           type="text"
                           variant="flushed"
-                          placeholder="name"
+                          placeholder="Name"
                         />
                       </FormControl>
                       <FormControl>
@@ -213,7 +213,7 @@ const Navbar = () => {
                           name="email"
                           type="email"
                           variant="flushed"
-                          placeholder="email address"
+                          placeholder="Email address"
                         />
                       </FormControl>
                       <FormControl>
@@ -227,7 +227,7 @@ const Navbar = () => {
                           placeholder="What's on your mind.."
                         />
                       </FormControl>
-                      <Button type="submit" colorScheme="green" w="full">
+                      <Button type="submit" colorScheme="green" w="93%">
                         Send
                       </Button>
                     </VStack>

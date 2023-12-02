@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./homeComponent.css";
 import {
   Box,
   Flex,
@@ -19,7 +18,7 @@ import {
   AccordionItemButton,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import "../home.css";
+import "../../home.css";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -51,8 +50,8 @@ const Value = () => {
           base: "100%",
           sm: "100%",
           md: "100%",
-          lg: "600px",
-          xl: "600px",
+          lg: "500px",
+          xl: "500px",
         }}
         display={"flex"}
         alignItems={"center"}

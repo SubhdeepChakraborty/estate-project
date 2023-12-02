@@ -3,7 +3,6 @@ import {
   Box,
   Flex,
   Input,
-  VStack,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -15,13 +14,13 @@ import { Field, Formik } from "formik";
 const Login = () => {
   return (
     <Flex
-      bg={"black"}
+      bg={"gray.100"}
       height={"100vh"}
       width={"100vw"}
       position={"absolute"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      zIndex={100}
+      align={"center"}
+      justify={"center"}
+      zIndex={1}
     >
       <Box bg={"white"} rounded={"md"} p={6} width={"350px"}>
         <Formik
@@ -51,29 +50,33 @@ const Login = () => {
         >
           {({ handleSubmit, errors, touched, isSubmitting }) => (
             <form onSubmit={handleSubmit}>
-              <VStack spacing={4} align={"flex-start"} justify={"flex-start"}>
-                <FormControl isInvalid={errors.email && touched.email}>
-                  <FormLabel htmlFor="email">Email Address</FormLabel>
-                  <Field
-                    id="email"
-                    type="email"
-                    name="email"
-                    as={Input}
-                    variant="filled"
-                  />
-                  <FormErrorMessage>{errors.email}</FormErrorMessage>
-                </FormControl>
-                <FormControl isInvalid={errors.password && touched.password}>
-                  <FormLabel htmlFor="password">Password</FormLabel>
-                  <Field
-                    id="password"
-                    type="password"
-                    name="password"
-                    variant="filled"
-                    as={Input}
-                  />
-                  <FormErrorMessage>{errors.password}</FormErrorMessage>
-                </FormControl>
+              <FormControl isInvalid={errors.email && touched.email}>
+                <FormLabel htmlFor="email">Email Address</FormLabel>
+                <Field
+                  id="email"
+                  type="email"
+                  name="email"
+                  as={Input}
+                  variant="filled"
+                />
+                <FormErrorMessage>{errors.email}</FormErrorMessage>
+              </FormControl>
+              <FormControl isInvalid={errors.password && touched.password}>
+                <FormLabel htmlFor="password">Password</FormLabel>
+                <Field
+                  id="password"
+                  type="password"
+                  name="password"
+                  variant="filled"
+                  as={Input}
+                />
+                <FormErrorMessage>{errors.password}</FormErrorMessage>
+              </FormControl>
+              <div
+                style={{
+                  marginTop: "5px",
+                }}
+              >
                 <Field
                   as={Checkbox}
                   id="rememberMe"
@@ -82,16 +85,16 @@ const Login = () => {
                 >
                   Remember me?
                 </Field>
-                <Button
-                  type="submit"
-                  isLoading={isSubmitting}
-                  loadingText="Submitting"
-                  w={"full"}
-                  colorScheme="green"
-                >
-                  Login
-                </Button>
-              </VStack>
+              </div>
+              <Button
+                type="submit"
+                isLoading={isSubmitting}
+                loadingText="Submitting"
+                w={"93%"}
+                colorScheme="green"
+              >
+                Login
+              </Button>
             </form>
           )}
         </Formik>

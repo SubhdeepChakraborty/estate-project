@@ -14,17 +14,14 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { Footer } from "../../../components";
-import "./homeComponent.css";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { AddIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import CountUp from "react-countup";
-import Companies from "./Companies";
 import { SwiperResi } from "../../../functions";
-import Value from "./Value";
-import HomeFooter from "./HomeFooter";
+import { Value, data, Companies, HomeFooter } from "./subcomponent";
 
 const HomeComponent = () => {
   return (
