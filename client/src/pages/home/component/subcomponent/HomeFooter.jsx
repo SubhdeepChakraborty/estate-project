@@ -5,10 +5,6 @@ const HomeFooter = () => {
   return (
     <Box>
       <Box
-        // w={{
-        //   base: "350px",
-        //   md: "full",
-        // }}
         display={{
           base: "flex",
           md: "",

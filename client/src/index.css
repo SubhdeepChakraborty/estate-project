@@ -2,6 +2,10 @@ body {
   user-select: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* /BreaKpoints */
 @media screen and (max-width: 481px) {
   .Home-image {

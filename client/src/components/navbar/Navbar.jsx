@@ -101,7 +101,7 @@ const Navbar = () => {
       },
     },
   };
-  console.log(window.innerWidth);
+  // console.log(window.innerWidth);
   return (
     <>
       <Box
@@ -144,11 +144,11 @@ const Navbar = () => {
                       </WrapItem>
 
                       <WrapItem>
-                        <Link to="/start">
+                        <a href="#About">
                           <Text fontSize={""} fontWeight={""} className="text">
-                            start
+                            About
                           </Text>
-                        </Link>
+                        </a>
                       </WrapItem>
                       <WrapItem>
                         <Link to="/residencies">
@@ -172,7 +172,11 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
-      <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
+      <Slide
+        direction="bottom"
+        in={isOpen}
+        style={{ zIndex: 10, maxWidth: "450px" }}
+      >
         <Box
           w={"400px"}
           p="40px"

@@ -22,9 +22,6 @@ import "../../home.css";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-// import { motion } from "framer-motion";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
-// import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Value = () => {
   return (
@@ -82,6 +79,7 @@ const Value = () => {
         </Box>
       </Box>
       <Box
+        id="About"
         // flexGrow={"1"}
         flexDirection={"column"}
         p={"5px"}

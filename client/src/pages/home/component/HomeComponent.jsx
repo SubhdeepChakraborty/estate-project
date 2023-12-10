@@ -21,7 +21,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import CountUp from "react-countup";
 import { SwiperResi } from "../../../functions";
-import { Value, data, Companies, HomeFooter } from "./subcomponent";
+import { Value, data, Companies, HomeFooter, Contact } from "./subcomponent";
 
 const HomeComponent = () => {
   return (
@@ -188,6 +188,9 @@ const HomeComponent = () => {
       </Box>
       <Box>
         <Value />
+      </Box>
+      <Box>
+        <Contact />
       </Box>
       <Box>
         <HomeFooter />
