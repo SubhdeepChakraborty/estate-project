@@ -6,6 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Border Class */
+.border {
+  border-radius: 5px;
+  border: 0.8px solid rgba(128, 128, 128, 0.143);
+}
+
 /* /BreaKpoints */
 @media screen and (max-width: 481px) {
   .Home-image {

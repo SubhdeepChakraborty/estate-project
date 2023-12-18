@@ -1,7 +1,17 @@
-import { Flex, Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Heading,
+  Text,
+  Grid,
+  GridItem,
+  Button,
+} from "@chakra-ui/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import React from "react";
+import { IoMdCall } from "react-icons/io";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
@@ -58,12 +68,70 @@ const Contact = () => {
         </Box>
         <Box w={"100%"}>
           <Grid
-            h="200px"
+            h="270px"
             templateColumns="repeat(2, 1fr)"
             templateRows="repeat(2, 1fr)"
             gap={4}
           >
-            <GridItem rowSpan={1} colSpan={1} bg="tomato"></GridItem>
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+              }}
+              transition={{
+                ease: "easeInOut",
+              }}
+            >
+              <GridItem rowSpan={1} colSpan={1} p={"15px"} className="border">
+                <Box>
+                  <Flex flexDirection={"column"}>
+                    <Flex
+                      alignItems={"center"}
+                      justifyContent={"space-evenly"}
+                      // mt={"px"}
+                    >
+                      <Box
+                        w={"50px"}
+                        h={"50px"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        justifyContent={"center"}
+                        borderRadius={"10px"}
+                        backgroundColor={"gray.200"}
+                      >
+                        <IoMdCall size={"30"} color="blue" />
+                      </Box>
+                      <Box>
+                        <Heading as="h2" size="md">
+                          Call
+                        </Heading>
+                        <Text color={"gray.700"}>021 231 45 14</Text>
+                      </Box>
+                    </Flex>
+                    <motion.div
+                      display={"flex"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                      whileHover={{
+                        scale: 1.1,
+                      }}
+                      transition={{
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <Button
+                        w={"90%"}
+                        mr={"20px"}
+                        color={"blue"}
+                        variant={"outline"}
+                        className="button-hover"
+                      >
+                        Call now
+                      </Button>
+                    </motion.div>
+                  </Flex>
+                </Box>
+              </GridItem>
+            </motion.div>
             <GridItem rowSpan={1} colSpan={1} bg="blue.500"></GridItem>
             <GridItem rowSpan={1} colSpan={1} bg="tomato"></GridItem>
             <GridItem rowSpan={1} colSpan={1} bg="blue.500"></GridItem>
