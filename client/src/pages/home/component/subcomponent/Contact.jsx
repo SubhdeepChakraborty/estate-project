@@ -11,7 +11,41 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import React from "react";
 import { IoMdCall } from "react-icons/io";
+import { AiFillMessage } from "react-icons/ai";
+import { FaVideo } from "react-icons/fa6";
+import { RiMessageFill } from "react-icons/ri";
 import { motion } from "framer-motion";
+
+const data = [
+  {
+    id: 1,
+    name: "call",
+    number: "021 231 45 14",
+    buttonText: "Call now",
+    icon: IoMdCall,
+  },
+  {
+    id: 2,
+    name: "Chat",
+    number: "021 231 45 14",
+    buttonText: "Chat now",
+    icon: AiFillMessage,
+  },
+  {
+    id: 3,
+    name: "Video call",
+    number: "021 231 45 14",
+    buttonText: "Video call now",
+    icon: FaVideo,
+  },
+  {
+    id: 4,
+    name: "Message",
+    number: "021 231 45 14",
+    buttonText: "Message now",
+    icon: RiMessageFill,
+  },
+];
 
 const Contact = () => {
   return (
@@ -73,68 +107,75 @@ const Contact = () => {
             templateRows="repeat(2, 1fr)"
             gap={4}
           >
-            <motion.div
-              whileHover={{
-                scale: 1.1,
-              }}
-              transition={{
-                ease: "easeInOut",
-              }}
-            >
-              <GridItem rowSpan={1} colSpan={1} p={"15px"} className="border">
-                <Box>
-                  <Flex flexDirection={"column"}>
-                    <Flex
-                      alignItems={"center"}
-                      justifyContent={"space-evenly"}
-                      // mt={"px"}
-                    >
-                      <Box
-                        w={"50px"}
-                        h={"50px"}
+            {data?.map((item) => (
+              <motion.div
+                key={item?.id}
+                whileHover={{
+                  scale: 1.1,
+                }}
+                transition={{
+                  ease: "easeInOut",
+                }}
+              >
+                <GridItem rowSpan={1} colSpan={1} p={"15px"} className="border">
+                  <Box>
+                    <Flex flexDirection={"column"}>
+                      <Flex
+                        alignItems={"center"}
+                        justifyContent={"space-evenly"}
+                        // mt={"px"}
+                      >
+                        <Box
+                          w={"50px"}
+                          h={"50px"}
+                          display={"flex"}
+                          alignItems={"center"}
+                          justifyContent={"center"}
+                          borderRadius={"10px"}
+                          backgroundColor={"gray.200"}
+                        >
+                          {console.log(item?.icon)}
+                          {item?.icon && <item.icon size={"30"} color="blue" />}
+                        </Box>
+                        <Box>
+                          <Heading as="h2" size="md" fontWeight={"medium"}>
+                            {item?.name}
+                          </Heading>
+                          <Text color={"gray.700"}>{item?.number}</Text>
+                        </Box>
+                      </Flex>
+                      <motion.div
                         display={"flex"}
                         alignItems={"center"}
                         justifyContent={"center"}
-                        borderRadius={"10px"}
-                        backgroundColor={"gray.200"}
+                        whileHover={{
+                          scale: 1.1,
+                        }}
+                        transition={{
+                          ease: "easeInOut",
+                        }}
                       >
-                        <IoMdCall size={"30"} color="blue" />
-                      </Box>
-                      <Box>
-                        <Heading as="h2" size="md">
-                          Call
-                        </Heading>
-                        <Text color={"gray.700"}>021 231 45 14</Text>
-                      </Box>
+                        <Button
+                          w={"90%"}
+                          mr={"20px"}
+                          color={"blue"}
+                          variant={"outline"}
+                          _hover={{
+                            backgroundColor: "blue",
+                            color: "white",
+                          }}
+                        >
+                          {item?.buttonText}
+                        </Button>
+                      </motion.div>
                     </Flex>
-                    <motion.div
-                      display={"flex"}
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                      whileHover={{
-                        scale: 1.1,
-                      }}
-                      transition={{
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <Button
-                        w={"90%"}
-                        mr={"20px"}
-                        color={"blue"}
-                        variant={"outline"}
-                        className="button-hover"
-                      >
-                        Call now
-                      </Button>
-                    </motion.div>
-                  </Flex>
-                </Box>
-              </GridItem>
-            </motion.div>
-            <GridItem rowSpan={1} colSpan={1} bg="blue.500"></GridItem>
+                  </Box>
+                </GridItem>
+              </motion.div>
+            ))}
+            {/* <GridItem rowSpan={1} colSpan={1} bg="blue.500"></GridItem>
             <GridItem rowSpan={1} colSpan={1} bg="tomato"></GridItem>
-            <GridItem rowSpan={1} colSpan={1} bg="blue.500"></GridItem>
+            <GridItem rowSpan={1} colSpan={1} bg="blue.500"></GridItem> */}
           </Grid>
         </Box>
         <Box
