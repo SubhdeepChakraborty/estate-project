@@ -19,7 +19,7 @@ import { motion } from "framer-motion";
 const data = [
   {
     id: 1,
-    name: "call",
+    name: "Call",
     number: "021 231 45 14",
     buttonText: "Call now",
     icon: IoMdCall,
@@ -51,10 +51,10 @@ const Contact = () => {
   return (
     <Flex
       height={{
-        base: "800px",
-        md: "850px",
-        lg: "650px",
-        xl: "650px",
+        base: "550px",
+        md: "920px",
+        lg: "500px",
+        xl: "500px",
       }}
       flexDirection={{
         base: "column",
@@ -64,10 +64,15 @@ const Contact = () => {
         xl: "row",
       }}
       alignItems={"center"}
-      justifyContent={"center"}
+      justifyContent={{
+        base: "flex-start",
+        md: "center",
+        lg: "center",
+        xl: "center",
+      }}
     >
       <Box
-        id="About"
+        // id="About"
         // flexGrow={"1"}
         flexDirection={"column"}
         p={"5px"}
@@ -75,15 +80,7 @@ const Contact = () => {
         alignItems={"center"}
         justifyContent={"center"}
       >
-        <Box
-          display={{
-            base: "none",
-            sm: "none",
-            md: "none",
-            lg: "block",
-            xl: "block",
-          }}
-        >
+        <Box className="Home-image">
           <Heading
             mb={"3"}
             fontSize={"larger"}
@@ -103,9 +100,20 @@ const Contact = () => {
         <Box w={"100%"}>
           <Grid
             h="270px"
-            templateColumns="repeat(2, 1fr)"
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(2, 1fr)",
+              xl: "repeat(2, 1fr)",
+            }}
             templateRows="repeat(2, 1fr)"
-            gap={4}
+            gap={{
+              base: 0,
+              md: 4,
+              lg: 4,
+              xl: 4,
+            }}
           >
             {data?.map((item) => (
               <motion.div
@@ -209,6 +217,7 @@ const Contact = () => {
               base: "300px",
               md: "400px",
             }}
+            className="Home-image"
           >
             {/* <Box> */}
             <LazyLoadImage
