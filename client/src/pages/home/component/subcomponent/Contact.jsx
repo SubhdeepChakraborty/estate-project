@@ -51,10 +51,10 @@ const Contact = () => {
   return (
     <Flex
       height={{
-        base: "550px",
+        base: "350px",
         md: "920px",
         lg: "500px",
-        xl: "500px",
+        xl: "450px",
       }}
       flexDirection={{
         base: "column",
@@ -75,7 +75,7 @@ const Contact = () => {
         // id="About"
         // flexGrow={"1"}
         flexDirection={"column"}
-        p={"5px"}
+        // p={"5px"}
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
@@ -101,8 +101,7 @@ const Contact = () => {
           <Grid
             h="270px"
             templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
+              base: "repeat(2, 1fr)",
               md: "repeat(2, 1fr)",
               lg: "repeat(2, 1fr)",
               xl: "repeat(2, 1fr)",
@@ -142,10 +141,9 @@ const Contact = () => {
                           borderRadius={"10px"}
                           backgroundColor={"gray.200"}
                         >
-                          {console.log(item?.icon)}
                           {item?.icon && <item.icon size={"30"} color="blue" />}
                         </Box>
-                        <Box>
+                        <Box className="Home-image">
                           <Heading as="h2" size="md" fontWeight={"medium"}>
                             {item?.name}
                           </Heading>
@@ -165,7 +163,6 @@ const Contact = () => {
                       >
                         <Button
                           w={"90%"}
-                          mr={"20px"}
                           color={"blue"}
                           variant={"outline"}
                           _hover={{
