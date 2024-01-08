@@ -272,6 +272,30 @@ const getAllFavResidency = asynchandler(async (req, res) => {
   }
 });
 
+//Search Functionality
+const getSearchedUser = asynchandler(async (req, res) => {
+  try {
+    const { searchTerm } = req.query;
+    const users = await prisma.user.findMany({
+      where: {
+        OR: [
+          {
+            name: {
+              contains: searchTerm,
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
+    });
+
+    res.status(200).json({ users });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+});
+
 export {
   createUser,
   getSIngleUser,
@@ -283,4 +307,5 @@ export {
   cancelBookings,
   addFavResidency,
   getAllFavResidency,
+  getSearchedUser,
 };
