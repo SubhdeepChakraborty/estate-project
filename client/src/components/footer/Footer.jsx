@@ -15,6 +15,11 @@ import { FaRegCopyright } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
+      <hr
+        style={{
+          marginTop: "5px",
+        }}
+      />
       <Box
         h={"-moz-max-content"}
         // background={"black"}

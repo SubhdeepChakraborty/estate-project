@@ -1,28 +1,53 @@
 import asynchandler from "express-async-handler";
 import { prisma } from "../config/prisma.config.js";
+import { BinaryCipher } from "decrypto";
 
-//Creating User
+// Creating User
 const createUser = asynchandler(async (req, res) => {
-  let { email } = req.body;
+  let { email, password, ...data } = req.body;
+
   try {
-    //Finding the user with the email
-    const userExits = await prisma.user.findUnique({ where: { email } });
-    //Condition if user didn't exist do this means create it
-    if (!userExits) {
-      const user = await prisma.user.create({ data: req.body });
-      res.send({
-        message: "User registered successfully",
-        user: user,
+    if (!password) {
+      res.status(400).send({
+        message: "Bad request.",
       });
+    }
+
+    // Finding the user with the email
+    const userExists = await prisma.user.findUnique({ where: { email } });
+
+    // Condition if user doesn't exist, create it
+    if (!userExists) {
+      let encryptedPassword = BinaryCipher.encrypt(password);
+      console.log(`Encrypted password in binary ${encryptedPassword}`);
+
+      const userData = {
+        email,
+        password: encryptedPassword,
+        ...data,
+      };
+      console.log(userData, "daaaaaaaaaaaaaaaaaataa");
+      try {
+        const user = await prisma.user.create({ data: userData });
+        res.send({
+          message: "User registered successfully",
+          user: user,
+        });
+      } catch (err) {
+        console.log(err, "error");
+        res.status(500).send({
+          message: "Error creating user.",
+        });
+      }
     } else {
       res.send({
-        message: "User already exist",
-        user: user,
+        message: "User already exists",
+        user: userExists,
       });
     }
   } catch (err) {
-    console.log(err, "error"); //For the developers
-    res.send({
+    console.log(err, "error");
+    res.status(500).send({
       message: "Something went wrong.",
     });
   }

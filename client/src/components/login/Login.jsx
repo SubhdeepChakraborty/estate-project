@@ -8,12 +8,15 @@ import {
   FormErrorMessage,
   Checkbox,
   Button,
+  Text,
+  Link,
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 
 const Login = () => {
   return (
     <Flex
+      mt={"0"}
       bg={"gray.100"}
       height={"100vh"}
       width={"100vw"}
@@ -95,6 +98,13 @@ const Login = () => {
               >
                 Login
               </Button>
+              <Text mt={"20px"} textAlign={"center"}>
+                New here ? let's{" "}
+                <Link color={"blue.300"} href="/register">
+                  register
+                </Link>{" "}
+                you.
+              </Text>
             </form>
           )}
         </Formik>

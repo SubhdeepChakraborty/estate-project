@@ -13,6 +13,5 @@ router.post("/register", createResidency);
 router.get("/", getAllresidency);
 router.get("/:id", singleResidency);
 router.delete("/:id", deleteResidency);
-router.put("/update/:id", updateResidency);
 
 export { router as residencyRoute };

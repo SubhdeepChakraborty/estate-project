@@ -22,8 +22,38 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import CountUp from "react-countup";
 import { SwiperResi } from "../../../functions";
 import { Value, data, Companies, HomeFooter, Contact } from "./subcomponent";
+import axios from "axios";
+import { useState } from "react";
 
 const HomeComponent = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(searchQuery, "qqqqqqqqqqqqqqqqqqqqqq");
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/user/users/search?searchTerm=${searchQuery}`
+        );
+        console.log(response.data); // Log the response data to the console
+        setData(response.data.users);
+      } catch (err) {
+        console.error(err); // Log any errors to the console
+      }
+    };
+
+    if (searchQuery) {
+      fetchData();
+    } else {
+      setSearchQuery("");
+    }
+  }, [searchQuery]);
+
+  const handleInputChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+  };
+
   return (
     <>
       {/* <Box> */}
@@ -79,6 +109,7 @@ const HomeComponent = () => {
                     base: "250px",
                     md: "400px",
                   }}
+                  position={"relative"}
                 >
                   <InputGroup>
                     <InputLeftElement
@@ -87,8 +118,15 @@ const HomeComponent = () => {
                       fontSize="1.2em"
                       children={<LocationOnIcon />}
                     />
-                    <Input placeholder="Search.." />
+                    <Input
+                      placeholder="Search.."
+                      onChange={handleInputChange}
+                    />
                   </InputGroup>
+                  <Box zIndex={1} position={"absolute"}>
+                    {searchQuery &&
+                      data?.map((e) => <Box key={e.id}>{e.name}</Box>)}
+                  </Box>
                 </Box>
                 <Box>
                   <Flex>

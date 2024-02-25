@@ -178,6 +178,11 @@ debug@^3.2.7:
   dependencies:
     ms "^2.1.1"
 
+decrypto@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/decrypto/-/decrypto-1.2.0.tgz#e8d0d627e4d2d81ff33a16ad19b62107f6b7a65e"
+  integrity sha512-abmwSkAlFGty5X1M3/CvHZFSagFtCQEzCYn+orAk9embzKQTrCZXNbnyDbN9qtKJT+gqgpdMoadhrNtJ0cKzsA==
+
 depd@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
