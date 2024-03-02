@@ -12,8 +12,11 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
+import axios from "axios";
+import { useGlobalAreaContext } from "../context/Context";
 
 const Login = () => {
+  const { allow, setAllow } = useGlobalAreaContext();
   return (
     <Flex
       mt={"0"}
@@ -37,6 +40,18 @@ const Login = () => {
               alert(JSON.stringify(values, null, 2));
               setSubmitting(false);
             }, 400); // Simulating form submission delay
+            let { email, password } = values;
+            console.log(email, password);
+            axios
+              .post(`http://localhost:3000/api/user/users/login&logout`, values)
+              .then((response) => {
+                console.log("Response:", response);
+                // Handle the response as needed
+                setAllow(!true);
+              })
+              .catch((err) => {
+                console.log("Error:", err);
+              });
           }}
           validate={(values) => {
             const errors = {};
@@ -100,7 +115,7 @@ const Login = () => {
               </Button>
               <Text mt={"20px"} textAlign={"center"}>
                 New here ? let's{" "}
-                <Link color={"blue.300"} href="/register">
+                <Link color={"blue.300"} href="/user/register">
                   register
                 </Link>{" "}
                 you.

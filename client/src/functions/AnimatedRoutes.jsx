@@ -14,7 +14,7 @@ const AnimatedRoutes = () => {
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Home />}>
           <Route index element={allow ? <Login /> : <HomeComponent />} />
-          <Route path="register" element={<Register />} />
+          <Route path="/user/register" element={<Register />} />
           <Route path="start" element={allow ? <Page /> : <Start />} />
           <Route
             path="residencies"

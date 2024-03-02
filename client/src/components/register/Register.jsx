@@ -59,7 +59,7 @@ const Register = () => {
 
               // Simulating form submission delay
               setTimeout(() => {
-                alert(values);
+                // alert(values);
                 setSubmitting(true);
               }, 400);
               console.log(isSubmitting, "ssssssssssssssssubmit");
@@ -268,7 +268,7 @@ const Register = () => {
               </Button>
               <Text mt={"20px"} textAlign={"center"}>
                 Already registered?{" "}
-                <Link color={"blue.300"} href="/login">
+                <Link color={"blue.300"} href="/">
                   Login here
                 </Link>
               </Text>
