@@ -5,7 +5,7 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
-  const [allow, setAllow] = useState(true);
+  const [allow, setAllow] = useState(false);
   const value = {
     isOpen,
     onToggle,
