@@ -25,12 +25,14 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const Register = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const [imageFile, setImageFile] = useState(null);
   const [isSubmitting, setSubmitting] = useState(false);
+  const [count, setCount] = useState(0);
   return (
     <Flex
       mt={"0"}
@@ -74,6 +76,9 @@ const Register = () => {
                   // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                   const progress =
                     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                  let integerPart = Math.floor(progress);
+                  setCount(integerPart);
+                  console.log(count, "counting is here");
                   console.log("Upload is " + progress + "% done");
                   switch (snapshot.state) {
                     case "paused":
@@ -255,12 +260,58 @@ const Register = () => {
                         : "https://bit.ly/dan-abramov"
                     }
                   />
+                  {/* <Box ml={"5px"} w={"100px"}>
+                    <motion.div
+                      animate={{
+                        width: `${count}%`,
+                        backgroundColor: count === 100 ? "green" : "red",
+                      }}
+                      initial={{ width: "0%" }}
+                      transition={{ ease: "linear", duration: 0.5 }}
+                      style={{
+                        height: "10px",
+                        borderRadius: "5px",
+                      }}
+                    ></motion.div>
+                  </Box> */}
+                  <Box ml={"17px"} w={"100px"}>
+                    {count === 0 ? (
+                      <Text color="gray.500" fontSize="sm">
+                        Upload your image
+                      </Text>
+                    ) : (
+                      <motion.div
+                        animate={{
+                          width: `${count}%`,
+                          backgroundColor: count === 100 ? "green" : "red",
+                        }}
+                        initial={{ width: "0%" }}
+                        transition={{ ease: "linear", duration: 0.5 }}
+                        style={{
+                          height: "20px",
+                          borderRadius: "5px",
+                          position: "relative",
+                        }}
+                      >
+                        <Text
+                          position="absolute"
+                          top="50%"
+                          left="50%"
+                          transform="translate(-50%, -50%)"
+                          color={count === 100 ? "white" : "black"}
+                          fontSize="sm"
+                        >
+                          {count}%
+                        </Text>
+                      </motion.div>
+                    )}
+                  </Box>
                 </Box>
               </Box>
               <Button
                 type="submit"
                 isLoading={isSubmitting}
-                loadingText="Submitting"
+                loadingText="Processing"
                 w={"93%"}
                 colorScheme="green"
               >

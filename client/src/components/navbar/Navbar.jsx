@@ -17,6 +17,9 @@ import {
   useDisclosure,
   useToast,
   Avatar,
+  AvatarBadge,
+  Heading,
+  IconButton,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Field, Formik } from "formik";
@@ -24,10 +27,14 @@ import emailjs from "@emailjs/browser";
 import { useGlobalAreaContext } from "../context/Context";
 import MainMenuItem from "./menu/MenuItem";
 import { Link } from "react-router-dom";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 const Navbar = () => {
   //email
   const formRef = useRef();
+  const [url, setUrl] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const toast = useToast();
   const { isOpen, onToggle } = useGlobalAreaContext();
   const [windowSize, setWindowSize] = useState({
@@ -46,12 +53,24 @@ const Navbar = () => {
 
     // Add the event listener when the component mounts
     window.addEventListener("resize", handleResize);
-
+    let imageUrl = localStorage.getItem("image");
+    let username = localStorage.getItem("name");
+    let email = localStorage.getItem("email");
+    setName(username);
+    setUrl(imageUrl);
+    setEmail(email);
     // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleSubmit = () => {
+    console.log("heloooo there");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+    localStorage.removeItem("image");
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -121,7 +140,15 @@ const Navbar = () => {
         >
           <Box display={"flex"} alignItems={"center"}>
             <Box cursor={"pointer"}>
-              <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+              <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
+                <Avatar name={name} src={url}>
+                  <AvatarBadge boxSize="1.25em" bg="green.500" />
+                </Avatar>
+                <Box>
+                  <Heading size="sm">{name}</Heading>
+                  <Text>{email}</Text>
+                </Box>
+              </Flex>
             </Box>
           </Box>
 
@@ -167,6 +194,20 @@ const Navbar = () => {
                 >
                   Contact
                 </Button>
+                {/* <Box> */}
+                <IconButton
+                  mt={"-19px"}
+                  mr={"4px"}
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  variant="unstyled"
+                  aria-label="See menu"
+                  w={"10px"}
+                  icon={<RiLogoutCircleRLine />}
+                  onClick={handleSubmit}
+                />
+                {/* </Box> */}
               </>
             )}
           </Box>

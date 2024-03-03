@@ -30,7 +30,6 @@ const HomeComponent = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(searchQuery, "qqqqqqqqqqqqqqqqqqqqqq");
       try {
         const response = await axios.get(
           `http://localhost:3000/api/user/users/search?searchTerm=${searchQuery}`

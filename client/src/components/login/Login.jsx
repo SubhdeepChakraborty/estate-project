@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Flex,
@@ -36,10 +36,6 @@ const Login = () => {
             rememberMe: false,
           }}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400); // Simulating form submission delay
             let { email, password } = values;
             console.log(email, password);
             axios
@@ -48,6 +44,10 @@ const Login = () => {
                 console.log("Response:", response);
                 // Handle the response as needed
                 setAllow(!true);
+                const imageData = response?.data?.data?.image;
+                localStorage.setItem("email", values.email);
+                localStorage.setItem("image", imageData);
+                localStorage.setItem("name", response?.data?.data?.name);
               })
               .catch((err) => {
                 console.log("Error:", err);
