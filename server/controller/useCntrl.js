@@ -53,6 +53,46 @@ const createUser = asynchandler(async (req, res) => {
   }
 });
 
+//Login or not
+const loginLogout = asynchandler(async (req, res) => {
+  let { email, password } = req.body;
+  console.log(req.body, "Starting data is here"); // Fixed variable name to password
+  try {
+    let realPassword = BinaryCipher.encrypt(password);
+    console.log(realPassword, "decrypted password"); // Fixed log message
+    // Finding the user with the email
+    const userExists = await prisma.user.findUnique({ where: { email } });
+    console.log(userExists, "user data is here"); // Fixed log message
+    if (!userExists) {
+      res.status(400).send({
+        status: false,
+        message: "Please register yourself.", // Fixed typo in message
+      });
+    } else {
+      const { password: storedPassword, ...userData } = userExists; // Renamed password variable to storedPassword to avoid conflict
+      console.log(storedPassword, "user password");
+      if (realPassword === storedPassword) {
+        res.status(200).send({
+          status: true,
+          message: "Hey there is your data",
+          data: userData, // Changed to userData to avoid sending the password in response
+        });
+      } else {
+        res.status(400).send({
+          status: false,
+          message: "Incorrect password.",
+        });
+      }
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      status: false,
+      message: "Something went wrong.",
+    });
+  }
+});
+
 //Get Single User
 const getSIngleUser = asynchandler(async (req, res) => {
   const { id } = req.params; // Destructure 'id' from 'req.params'
@@ -333,4 +373,5 @@ export {
   addFavResidency,
   getAllFavResidency,
   getSearchedUser,
+  loginLogout,
 };

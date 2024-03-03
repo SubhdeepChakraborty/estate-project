@@ -115,7 +115,7 @@ const Login = () => {
               </Button>
               <Text mt={"20px"} textAlign={"center"}>
                 New here ? let's{" "}
-                <Link color={"blue.300"} href="/user/register">
+                <Link color={"blue.300"} href="/register">
                   register
                 </Link>{" "}
                 you.

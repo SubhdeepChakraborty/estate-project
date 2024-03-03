@@ -11,6 +11,7 @@ import {
   getallUsers,
   updateUser,
   getSearchedUser,
+  loginLogout,
 } from "../controller/useCntrl.js";
 
 const router = express.Router();
@@ -26,5 +27,6 @@ router.post("/cancel/:id", cancelBookings);
 router.post("/fav/:rid", addFavResidency);
 router.get("/favs/:id", getAllFavResidency);
 router.get("/users/search", getSearchedUser);
+router.post("/users/login&logout", loginLogout);
 
 export { router as userRoute };
