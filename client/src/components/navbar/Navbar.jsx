@@ -28,9 +28,12 @@ import { useGlobalAreaContext } from "../context/Context";
 import MainMenuItem from "./menu/MenuItem";
 import { Link } from "react-router-dom";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { Tooltip } from "@chakra-ui/react";
 
 const Navbar = () => {
   //email
+  // const navigate = useNavigation();
+  const { allow, setAllow } = useGlobalAreaContext();
   const formRef = useRef();
   const [url, setUrl] = useState("");
   const [name, setName] = useState("");
@@ -67,9 +70,11 @@ const Navbar = () => {
 
   const handleSubmit = () => {
     console.log("heloooo there");
+    // navigate("/");
     localStorage.removeItem("email");
     localStorage.removeItem("name");
     localStorage.removeItem("image");
+    setAllow(true);
   };
 
   const sendEmail = (e) => {
@@ -140,11 +145,25 @@ const Navbar = () => {
         >
           <Box display={"flex"} alignItems={"center"}>
             <Box cursor={"pointer"}>
-              <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
+              <Flex
+                flex="1"
+                gap="4"
+                alignItems="center"
+                flexWrap="wrap"
+                flexDirection={{
+                  base: "row-reverse",
+                  md: "unset",
+                }}
+              >
                 <Avatar name={name} src={url}>
                   <AvatarBadge boxSize="1.25em" bg="green.500" />
                 </Avatar>
-                <Box>
+                <Box
+                  display={{
+                    base: "none",
+                    md: "inline-block",
+                  }}
+                >
                   <Heading size="sm">{name}</Heading>
                   <Text>{email}</Text>
                 </Box>
@@ -195,18 +214,20 @@ const Navbar = () => {
                   Contact
                 </Button>
                 {/* <Box> */}
-                <IconButton
-                  mt={"-19px"}
-                  mr={"4px"}
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"center"}
-                  variant="unstyled"
-                  aria-label="See menu"
-                  w={"10px"}
-                  icon={<RiLogoutCircleRLine />}
-                  onClick={handleSubmit}
-                />
+                <Tooltip label="Logout">
+                  <IconButton
+                    mt={"-19px"}
+                    mr={"4px"}
+                    display={"flex"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    variant="unstyled"
+                    aria-label="See menu"
+                    w={"10px"}
+                    icon={<RiLogoutCircleRLine />}
+                    onClick={handleSubmit}
+                  />
+                </Tooltip>
                 {/* </Box> */}
               </>
             )}

@@ -14,9 +14,11 @@ import {
 import { Field, Formik } from "formik";
 import axios from "axios";
 import { useGlobalAreaContext } from "../context/Context";
+import { useToast } from "@chakra-ui/react";
 
 const Login = () => {
   const { allow, setAllow } = useGlobalAreaContext();
+  const toast = useToast();
   return (
     <Flex
       mt={"0"}
@@ -39,10 +41,20 @@ const Login = () => {
             let { email, password } = values;
             console.log(email, password);
             axios
-              .post(`http://localhost:3000/api/user/users/login&logout`, values)
+              .post(
+                `https://estate-project-server.onrender.com/api/user/users/login&logout`,
+                values
+              )
               .then((response) => {
                 console.log("Response:", response);
                 // Handle the response as needed
+                toast({
+                  title: "Processing your request.",
+                  description: " Successfully logged in.",
+                  status: "loading",
+                  duration: 1000,
+                  position: "top-left",
+                });
                 setAllow(!true);
                 const imageData = response?.data?.data?.image;
                 localStorage.setItem("email", values.email);
@@ -51,6 +63,13 @@ const Login = () => {
               })
               .catch((err) => {
                 console.log("Error:", err);
+                toast({
+                  title: "Something went wrong",
+                  description: "We're working on it. Please request later.",
+                  status: "error",
+                  duration: 3000,
+                  position: "top-left",
+                });
               });
           }}
           validate={(values) => {
