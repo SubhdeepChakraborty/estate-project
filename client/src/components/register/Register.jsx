@@ -107,7 +107,7 @@ const Register = () => {
                       };
                       axios
                         .post(
-                          "https://estate-project-server.onrender.com/api/user/register",
+                          "https://estate-project-qfbm.onrender.com/api/user/register",
                           userData
                         )
                         .then(() => {

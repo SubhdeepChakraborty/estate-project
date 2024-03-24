@@ -32,7 +32,7 @@ const HomeComponent = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/user/users/search?searchTerm=${searchQuery}`
+          `https://estate-project-qfbm.onrender.com/api/user/users/search?searchTerm=${searchQuery}`
         );
         console.log(response.data); // Log the response data to the console
         setData(response.data.users);
